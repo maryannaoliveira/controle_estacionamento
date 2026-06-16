@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico - Parking System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <style>
+        /* CSS ajustado para não aplicar o fundo azul indesejado */
+        .sidebar ul li a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div>
+            <h2 class="logo">
+                <i class="fa-solid fa-car"></i>
+                Parking
+            </h2>
+            <ul>
+                <li><a href="/dashboard"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li><a href="/entradas"><i class="fa-solid fa-car-side"></i> Entradas</a></li>
+                <li><a href="/historico"><i class="fa-solid fa-clock"></i> Histórico</a></li>
+                <li><a href="/relatorios"><i class="fa-solid fa-chart-line"></i> Relatórios</a></li>
+                <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Sair</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div>
+                <h1>Histórico de Vagas</h1>
+                <p class="subtitulo">Todos os veículos que já passaram pelo pátio</p>
+            </div>
+            <div class="relogio-box">
+                <i class="fa-regular fa-clock"></i>
+                <span id="relogio"></span>
+            </div>
+        </div>
+
+        <div class="tabela-box">
+            <div class="titulo-tabela">
+                <h2>
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Registros Consolidados
+                </h2>
+            </div>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>Placa</th>
+                        <th>Modelo</th>
+                        <th>Entrada</th>
+                        <th>Saída</th>
+                        <th>Valor Pago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for veiculo in veiculos %}
+                    <tr>
+                        <td class="fw-bold text-info" style="letter-spacing: 1px;">{{ veiculo[1] }}</td>
+                        <td>{{ veiculo[2] }}</td>
+                        <td class="text-muted small">{{ veiculo[4] }}</td>
+                        <td class="text-muted small">{{ veiculo[5] }}</td>
+                        <td>
+                            {% if veiculo[6] == 0.0 %}
+                            <span class="badge bg-success fw-bold">Gratuito (Carência)</span>
+                            {% else %}
+                            <span class="text-success fw-bold">R$ {{ "%.2f"|format(veiculo[6]) }}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center text-muted py-4">Nenhum histórico registrado ainda.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
