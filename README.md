@@ -1,1 +1,104 @@
-# controle_estacionamento
+# Controle de Estacionamento
+
+## Descrição
+
+O Controle de Estacionamento é um sistema desenvolvido para gerenciar a entrada e saída de veículos em um estacionamento. O sistema permite cadastrar veículos, registrar movimentações e consultar informações de forma organizada e eficiente.
+
+## Objetivo
+
+O objetivo do projeto é facilitar o controle de veículos em estacionamentos, reduzindo erros em registros manuais e tornando o gerenciamento mais rápido e seguro.
+
+## Público-Alvo
+
+* Estacionamentos privados
+* Empresas
+* Instituições de ensino
+* Pequenos estabelecimentos que necessitam controlar a entrada e saída de veículos
+
+## Tecnologias Utilizadas
+
+* Python
+* Flask
+* HTML
+* CSS
+* Bootstrap
+* SQLite/MySQL
+* Programação Orientada a Objetos (POO)
+
+## Funcionalidades
+
+* Cadastro de veículos
+* Registro de entrada de veículos
+* Registro de saída de veículos
+* Consulta de veículos cadastrados
+* Histórico de movimentações
+* Interface web responsiva
+
+## Estrutura do Projeto
+
+```text
+controle_estacionamento/
+│
+├── app.py
+├── models/
+├── templates/
+├── static/
+├── database/
+└── README.md
+```
+
+## Conceitos de POO Aplicados
+
+O projeto foi desenvolvido utilizando os princípios da Programação Orientada a Objetos:
+
+* Classes para representar as entidades do sistema.
+* Objetos para armazenar informações dos veículos.
+* Métodos para realizar operações de cadastro, entrada e saída.
+* Encapsulamento para organizar e proteger os dados do sistema.
+
+## Como Executar o Projeto
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/maryannaoliveira/controle_estacionamento.git
+```
+
+### 2. Acessar a pasta do projeto
+
+```bash
+cd controle_estacionamento
+```
+
+### 3. Instalar as dependências
+
+```bash
+pip install flask
+```
+
+### 4. Executar o sistema
+
+```bash
+python app.py
+```
+
+ou
+
+```bash
+flask run
+```
+
+### 5. Abrir no navegador
+
+```text
+http://127.0.0.1:5000
+```
+
+## Desenvolvedores
+
+* Mary Cecília Ramos de Oliveira
+* Maryanna Ramos de Oliveira
+
+## Considerações Finais
+
+Este projeto foi desenvolvido como atividade da disciplina de Programação Orientada a Objetos, aplicando conceitos de desenvolvimento de software, banco de dados e programação web para solucionar um problema real de gerenciamento de estacionamento.
